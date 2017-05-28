@@ -10,7 +10,7 @@ export class CockpitComponent implements OnInit {
 	// przypisanie do właściwości obiektów EmitterObject (czyli takich, które mogą emitować własne zdarzenia)
 	@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
 	@Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
-	newServerName = '';
+	// newServerName = '';
   	newServerContent = '';
 
   constructor() { }
@@ -18,18 +18,18 @@ export class CockpitComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddServer() {
+  onAddServer(nameInput: HTMLInputElement) {
   	// emitowanie eventu z przekazaniem danych
     this.serverCreated.emit({
-    	serverName: this.newServerName,
+    	serverName: nameInput.value,
     	serverContent: this.newServerContent
     });
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(nameInput: HTMLInputElement) {
   	// emitowanie eventu z przekazaniem danych
     this.blueprintCreated.emit({
-    	serverName: this.newServerName,
+    	serverName: nameInput.value,
     	serverContent: this.newServerContent
     });
   }

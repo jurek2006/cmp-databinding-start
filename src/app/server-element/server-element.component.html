@@ -1,10 +1,10 @@
+<!-- server-element.component.html -->
 <div
     class="panel panel-default">
     <div class="panel-heading">{{ element.name }}</div>
     <div class="panel-body">
-      <p>
-        <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-        <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-      </p>
+    	<!-- wewnątrz dyrektywy ng-content wstawiony będzie fragment zdefiniowany 
+    	wewnątrz <app-server-element> wstawiającego komponent-->
+      <ng-content></ng-content>
     </div>
   </div>
